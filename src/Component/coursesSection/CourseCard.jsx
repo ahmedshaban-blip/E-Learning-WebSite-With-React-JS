@@ -1,17 +1,20 @@
 import MyButton from "../MyButton";
+import { useTranslation } from "react-i18next";
 
 export default function CourseCard({
-	image,
-	duration,
-	level,
-	instructor,
-	title,
-	description,
-	buttonText,
+        image,
+        duration,
+        level,
+        instructor,
+        title,
+        description,
+        buttonText,
 }) {
-	return (
-		<div
-			id="CoursesSec"
+        const { t } = useTranslation();
+
+        return (
+                <div
+                        id="CoursesSec"
 			className="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-md transition"
 		>
 			<img src={image} alt={title} className="w-full h-48 object-cover" />
@@ -22,13 +25,13 @@ export default function CourseCard({
 						<span className="px-2 py-1 bg-gray-100 rounded text-gray-800">
 							{duration} {/* Duration which will come from DB ان شاء المولي */}
 						</span>
-						<span className="px-2 py-1 bg-gray-100 rounded text-gray-800">
-							{level} {/*   Level لو موجودة  */}
-						</span>
-					</div>
-					<span className="font-medium">By {instructor}</span>
-					{/* Instructor */}
-				</div>
+                                                <span className="px-2 py-1 bg-gray-100 rounded text-gray-800">
+                                                        {level} {/*   Level لو موجودة  */}
+                                                </span>
+                                        </div>
+                                        <span className="font-medium">{t("courses.by", { name: instructor })}</span>
+                                        {/* Instructor */}
+                                </div>
 
 				{/* Title & Description */}
 				<div>

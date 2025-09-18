@@ -40,39 +40,164 @@
 		"signup": "Sign Up",
 		"login": "Login"
 	},
-	"hero": {
-		"headline": "Unlock Your Creative potential",
-		"subline": "with Online Design and Development Courses.",
-		"desc": "Learn from Industry Experts and Enhance Your Skills.",
-		"explore": "Explore Courses",
-		"pricing": "View Pricing"
-	},
-	"benefits": {
-		"title": "Benefits",
-		"subtitle": "Learn from industry experts and enhance your skills.",
-		"items": {
-			"1": "Flexible Learning Schedule",
-			"2": "Expert Instruction",
-			"3": "Diverse Course Offerings",
-			"4": "Updated Curriculum",
-			"5": "Practical Projects and Assignments",
-			"6": "Interactive Learning Environment"
-		}
-	},
-	"testimonials": {
-		"title": "Our Testimonials",
-		"desc": "Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et.",
-		"read": "Read Full Story"
-	},
-	"pricing": {
-		"title": "Our Pricing",
-		"desc": "Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et.",
-		"monthly": "Monthly",
-		"yearly": "Yearly",
-		"free": "Free Plan",
-		"pro": "Pro Plan",
-		"month": "/month",
-		"features": "Available Features",
-		"get": "Get Started"
-	}
+        "hero": {
+                "highlight": "Unlock",
+                "headline": "Your Creative potential",
+                "subline": "with Online Design and Development Courses.",
+                "desc": "Learn from Industry Experts and Enhance Your Skills.",
+                "explore": "Explore Courses",
+                "pricing": "View Pricing"
+        },
+        "benefits": {
+                "title": "Benefits",
+                "subtitle": "Learn from industry experts and enhance your skills.",
+                "items": [
+                        {
+                                "num": "01",
+                                "title": "Flexible Learning Schedule",
+                                "text": "Fit your coursework around your existing commitments."
+                        },
+                        {
+                                "num": "02",
+                                "title": "Expert Instruction",
+                                "text": "Learn from industry experts with real-world experience."
+                        },
+                        {
+                                "num": "03",
+                                "title": "Diverse Course Offerings",
+                                "text": "Explore a wide range of design and development courses."
+                        },
+                        {
+                                "num": "04",
+                                "title": "Updated Curriculum",
+                                "text": "Access courses with up-to-date content reflecting the latest trends and industry practices."
+                        },
+                        {
+                                "num": "05",
+                                "title": "Practical Projects and Assignments",
+                                "text": "Develop a portfolio showcasing your skills and abilities to potential employers."
+                        },
+                        {
+                                "num": "06",
+                                "title": "Interactive Learning Environment",
+                                "text": "Collaborate with fellow learners, exchanging ideas and feedback to enhance your understanding."
+                        }
+                ]
+        },
+        "courses": {
+                "title": "Our Courses",
+                "subtitle": "Learn from industry experts and enhance your skills.",
+                "cta": "Get it Now",
+                "by": "By {{name}}",
+                "items": {
+                        "webDesign": {
+                                "duration": "4 Weeks",
+                                "level": "Beginner",
+                                "instructor": "John Smith",
+                                "title": "Web Design Fundamentals",
+                                "description": "Learn the fundamentals of web design, including HTML, CSS, and responsive design principles."
+                        },
+                        "uiux": {
+                                "duration": "6 Weeks",
+                                "level": "Intermediate",
+                                "instructor": "Emily Johnson",
+                                "title": "UI/UX Design",
+                                "description": "Master the art of creating intuitive user interfaces and enhancing user experiences."
+                        }
+                }
+        },
+        "testimonials": {
+                "title": "Our Testimonials",
+                "desc": "Hear from learners who advanced their skills with our courses.",
+                "read": "Read Full Story",
+                "items": {
+                        "doha": {
+                                "name": "Doha",
+                                "text": "The web design course provided a solid foundation for me. The instructors were knowledgeable and supportive, and the interactive learning environment was engaging. I highly recommend it!"
+                        },
+                        "ahmed": {
+                                "name": "Ahmed",
+                                "text": "The UI/UX design course exceeded my expectations. The instructor’s expertise and practical assignments helped me improve my design skills. I feel more confident in my career now. Thank you!"
+                        },
+                        "hoda": {
+                                "name": "Hoda",
+                                "text": "The mobile app development course was fantastic! The step-by-step tutorials and hands-on projects helped me grasp the concepts easily. I'm now building my own app. Great course!"
+                        },
+                        "abdulrhman": {
+                                "name": "Abdulrhman",
+                                "text": "I enrolled in the graphic design course as a beginner, and it was the perfect starting point. The instructor’s guidance and feedback improved my design abilities significantly. I'm grateful for this course!"
+                        }
+                }
+        },
+        "partners": {
+                "items": {
+                        "zapier": "Zapier",
+                        "spotify": "Spotify",
+                        "zoom": "Zoom",
+                        "amazon": "Amazon",
+                        "adobe": "Adobe",
+                        "notion": "Notion",
+                        "netflix": "Netflix"
+                }
+        },
+        "video": {
+                "title": "Course introduction video"
+        },
+        "pricing": {
+                "title": "Our Pricing",
+                "desc": "Choose the plan that fits your learning goals and budget.",
+                "monthly": "Monthly",
+                "yearly": "Yearly",
+                "free": "Free Plan",
+                "pro": "Pro Plan",
+                "month": "/month",
+                "features": {
+                        "title": "Available Features",
+                        "free": [
+                                { "label": "Access to selected free courses.", "included": true },
+                                { "label": "Limited course materials and resources.", "included": true },
+                                { "label": "Basic community support.", "included": true },
+                                { "label": "No certification upon completion.", "included": true },
+                                { "label": "Ad-supported platform.", "included": true },
+                                { "label": "Access to exclusive Pro Plan community forums.", "included": false },
+                                { "label": "Early access to new courses and updates.", "included": false }
+                        ],
+                        "pro": [
+                                { "label": "Unlimited access to all courses.", "included": true },
+                                { "label": "Unlimited course materials and resources.", "included": true },
+                                { "label": "Priority support from instructors.", "included": true },
+                                { "label": "Course completion certificates.", "included": true },
+                                { "label": "Ad-free experience.", "included": true },
+                                { "label": "Access to exclusive Pro Plan community forums.", "included": true },
+                                { "label": "Early access to new courses and updates.", "included": true }
+                        ]
+                },
+                "get": "Get Started"
+        },
+        "footer": {
+                "contact": {
+                        "email": "hello@skillbridge.com",
+                        "phone": "+20 123 456 7890",
+                        "location": "Cairo, Egypt"
+                },
+                "sections": {
+                        "home": {
+                                "title": "Home",
+                                "links": ["Benefits", "Our Courses", "Our Testimonials", "Our FAQ"]
+                        },
+                        "about": {
+                                "title": "About Us",
+                                "links": ["Company", "Careers", "Press", "News"]
+                        },
+                        "social": {
+                                "title": "Social Profiles",
+                                "labels": {
+                                        "facebook": "Facebook",
+                                        "twitter": "Twitter",
+                                        "linkedin": "LinkedIn"
+                                }
+                        }
+                },
+                "rights": "@2025 Skillbridge. All rights reserved"
+        }
 }
