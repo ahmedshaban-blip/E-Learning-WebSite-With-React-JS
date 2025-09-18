@@ -1,0 +1,57 @@
+{
+	"nav": {
+		"logoAlt": "Your Company",
+		"openMenu": "Open main menu",
+		"promo": {
+			"beforeStar": "Free Course",
+			"afterStar": "Sale Ends Soon, Get It Now"
+		},
+		"switchToArabic": "Switch to Arabic",
+		"switchToEnglish": "Switch to English"
+	},
+	"navbar": {
+		"home": "Home",
+		"courses": "Courses",
+		"my courses": "My Courses",
+		"about": "About Us",
+		"pricing": "Pricing",
+		"contact": "Contact",
+		"signup": "Sign Up",
+		"login": "Login"
+	},
+	"hero": {
+		"headline": "Unlock Your Creative potential",
+		"subline": "with Online Design and Development Courses.",
+		"desc": "Learn from Industry Experts and Enhance Your Skills.",
+		"explore": "Explore Courses",
+		"pricing": "View Pricing"
+	},
+	"benefits": {
+		"title": "Benefits",
+		"subtitle": "Learn from industry experts and enhance your skills.",
+		"items": {
+			"1": "Flexible Learning Schedule",
+			"2": "Expert Instruction",
+			"3": "Diverse Course Offerings",
+			"4": "Updated Curriculum",
+			"5": "Practical Projects and Assignments",
+			"6": "Interactive Learning Environment"
+		}
+	},
+	"testimonials": {
+		"title": "Our Testimonials",
+		"desc": "Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et.",
+		"read": "Read Full Story"
+	},
+	"pricing": {
+		"title": "Our Pricing",
+		"desc": "Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et.",
+		"monthly": "Monthly",
+		"yearly": "Yearly",
+		"free": "Free Plan",
+		"pro": "Pro Plan",
+		"month": "/month",
+		"features": "Available Features",
+		"get": "Get Started"
+	}
+}
