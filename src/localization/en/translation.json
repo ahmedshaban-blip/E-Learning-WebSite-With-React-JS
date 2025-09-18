@@ -1,14 +1,35 @@
 {
-	"nav": {
-		"logoAlt": "Your Company",
-		"openMenu": "Open main menu",
-		"promo": {
-			"beforeStar": "Free Course",
-			"afterStar": "Sale Ends Soon, Get It Now"
-		},
-		"switchToArabic": "Switch to Arabic",
-		"switchToEnglish": "Switch to English"
-	},
+        "nav": {
+                "logoAlt": "Your Company",
+                "openMenu": "Open main menu",
+                "promo": {
+                        "beforeStar": "Free Course",
+                        "afterStar": "Sale Ends Soon, Get It Now"
+                },
+                "menu": {
+                        "home": "Home",
+                        "courses": "Courses",
+                        "myCourses": "My Courses",
+                        "about": "About Us",
+                        "pricing": "Pricing",
+                        "contact": "Contact",
+                        "wishlist": "Wishlist"
+                },
+                "auth": {
+                        "signup": "Sign Up",
+                        "login": "Login",
+                        "logout": "Logout",
+                        "welcome": "Welcome, {{name}}"
+                },
+                "language": {
+                        "short": {
+                                "en": "EN",
+                                "ar": "AR"
+                        },
+                        "switchToArabic": "Switch to Arabic",
+                        "switchToEnglish": "Switch to English"
+                }
+        },
 	"navbar": {
 		"home": "Home",
 		"courses": "Courses",

@@ -1,5 +1,36 @@
 {
-	"navbar": {
+        "nav": {
+                "logoAlt": "شركتك",
+                "openMenu": "افتح القائمة الرئيسية",
+                "promo": {
+                        "beforeStar": "دورة مجانية",
+                        "afterStar": "ينتهي العرض قريبًا، احصل عليه الآن"
+                },
+                "menu": {
+                        "home": "الرئيسية",
+                        "courses": "الكورسات",
+                        "myCourses": "كورساتي",
+                        "about": "من نحن",
+                        "pricing": "الأسعار",
+                        "contact": "تواصل معنا",
+                        "wishlist": "المفضلة"
+                },
+                "auth": {
+                        "signup": "إنشاء حساب",
+                        "login": "تسجيل الدخول",
+                        "logout": "تسجيل الخروج",
+                        "welcome": "مرحبًا، {{name}}"
+                },
+                "language": {
+                        "short": {
+                                "en": "EN",
+                                "ar": "AR"
+                        },
+                        "switchToArabic": "التبديل إلى العربية",
+                        "switchToEnglish": "التبديل إلى الإنجليزية"
+                }
+        },
+        "navbar": {
 		"home": "الرئيسية",
 		"courses": "الكورسات",
 		"my courses": "كورساتي",
