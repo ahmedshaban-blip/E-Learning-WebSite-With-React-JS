@@ -1,11 +1,13 @@
 import MyButton from "../MyButton";
+import { useTranslation } from "react-i18next";
 
 export default function TestimonialCard({ text, image, name }) {
-	return (
-		<div className="bg-white rounded-xl border shadow-sm p-6 flex flex-col justify-between hover:shadow-md transition">
-			<p className="text-gray-700 text-sm leading-relaxed">{text}</p>
+        const { t } = useTranslation();
+        return (
+                <div className="bg-white rounded-xl border shadow-sm p-6 flex flex-col justify-between hover:shadow-md transition">
+                        <p className="text-gray-700 text-sm leading-relaxed">{text}</p>
 
-			<div className="mt-6 flex items-center justify-between border-t pt-4">
+                        <div className="mt-6 flex items-center justify-between border-t pt-4">
 				<div className="flex items-center gap-3">
 					<img
 						src={image}
@@ -15,10 +17,10 @@ export default function TestimonialCard({ text, image, name }) {
 					<span className="font-medium text-gray-800">{name}</span>
 				</div>
 
-				<MyButton bgColor="#ff9500" textColor="text-gray-800">
-					Read Full Story
-				</MyButton>
-			</div>
-		</div>
-	);
+                                <MyButton bgColor="#ff9500" textColor="text-gray-800">
+                                        {t("testimonials.read")}
+                                </MyButton>
+                        </div>
+                </div>
+        );
 }
