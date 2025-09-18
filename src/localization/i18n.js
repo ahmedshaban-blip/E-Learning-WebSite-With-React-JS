@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import enTranslation from "./en/translation.json";
+import arTranslation from "./ar/translation.json";
 
 i18n
     .use(LanguageDetector) // detect language from browser
@@ -8,16 +10,10 @@ i18n
     .init({
         resources: {
             en: {
-                translation: {
-                    welcome: "Welcome to our platform",
-                    view_pricing: "View Pricing",
-                },
+                translation: enTranslation,
             },
             ar: {
-                translation: {
-                    welcome: "مرحباً بك في منصتنا",
-                    view_pricing: "عرض الأسعار",
-                },
+                translation: arTranslation,
             },
         },
         fallbackLng: "en", // default lan
