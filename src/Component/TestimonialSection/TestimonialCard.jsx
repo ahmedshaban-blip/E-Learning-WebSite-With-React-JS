@@ -5,7 +5,7 @@ export default function TestimonialCard({ text, image, name }) {
 		<div className="bg-white rounded-xl border shadow-sm p-6 flex flex-col justify-between hover:shadow-md transition">
 			<p className="text-gray-700 text-sm leading-relaxed">{text}</p>
 
-			<div className="mt-6 flex items-center justify-between border-t pt-4">
+			<div className="mt-6 flex flex-col items-center justify-between border-t pt-4">
 				<div className="flex items-center gap-3">
 					<img
 						src={image}

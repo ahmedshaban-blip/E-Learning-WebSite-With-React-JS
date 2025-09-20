@@ -1,4 +1,3 @@
-// src/routes/ProtectedRoute.jsx
 import React, { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useLocation } from "react-router-dom";

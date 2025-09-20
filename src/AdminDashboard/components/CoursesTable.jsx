@@ -1,19 +1,22 @@
 // CoursesTable.jsx
 import { useState, useEffect } from 'react';
 import { db } from '../../lib/firebase';
-import { 
-  collection, 
-  getDocs, 
-  orderBy, 
-  query, 
+import {
+  collection,
+  getDocs,
+  orderBy,
+  query,
   where,
-  doc, 
-  getDoc 
+  doc,
+  getDoc
 } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import CourseRow from './CourseRow';
+import { useTranslation } from 'react-i18next';
 
 function CoursesTable() {
+  const { t } = useTranslation();
+
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [role, setRole] = useState(null);
@@ -71,7 +74,7 @@ function CoursesTable() {
 
         const querySnapshot = await getDocs(q);
         const coursesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        
+
         console.log(" courses fetched:", coursesData);
         setCourses(coursesData);
       } catch (error) {
@@ -89,7 +92,7 @@ function CoursesTable() {
   };
 
   if (isLoading) {
-    return <div className="text-center p-10">Loading...</div>;
+    return <div className="text-center p-10">{t('myCourses.loading')}</div>;
   }
 
   return (
@@ -97,26 +100,26 @@ function CoursesTable() {
       <table className="w-full text-left">
         <thead>
           <tr>
-            <th className="p-4 text-sm font-bold text-gray-600 text-center"> Image </th>
-            <th className="p-4 text-sm font-bold text-gray-600 text-center"> Course Name </th>
-            <th className="p-4 text-sm font-bold text-gray-600 text-center">Price</th>
-            <th className="p-4 text-sm font-bold text-gray-600 text-center">Description</th>
-            <th className="p-4 text-sm font-bold text-gray-600 text-center">Actions</th>
+            <th className="p-4 text-sm font-bold text-gray-600 text-center">{t('coursesTable.headers.image')}</th>
+            <th className="p-4 text-sm font-bold text-gray-600 text-center">{t('coursesTable.headers.courseName')}</th>
+            <th className="p-4 text-sm font-bold text-gray-600 text-center">{t('coursesTable.headers.price')}</th>
+            <th className="p-4 text-sm font-bold text-gray-600 text-center">{t('coursesTable.headers.description')}</th>
+            <th className="p-4 text-sm font-bold text-gray-600 text-center">{t('coursesTable.headers.actions')}</th>
           </tr>
         </thead>
         <tbody>
           {courses.length > 0 ? (
             courses.map((course) => (
-              <CourseRow 
-                key={course.id} 
-                course={course} 
-                onDelete={handleDeleteCourse} 
+              <CourseRow
+                key={course.id}
+                course={course}
+                onDelete={handleDeleteCourse}
               />
             ))
           ) : (
             <tr>
               <td colSpan="5" className="text-center p-10 text-gray-500">
-                Don't have any course yet.
+                {t('coursesTable.empty')}
               </td>
             </tr>
           )}

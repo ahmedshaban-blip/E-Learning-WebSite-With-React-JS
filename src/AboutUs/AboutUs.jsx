@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; // <-- 1. استدعاء Hook الترجمة
+
 import AboutSection from '../Component/AboutSection/AboutSection';
 
 
 export default function AboutUs() {
+  const { t } = useTranslation(); 
   const MyButton = ({ children, disabled, ...restProps }) => {
     return (
      <button
@@ -22,16 +25,12 @@ export default function AboutUs() {
         <div className='container mx-auto flex items-center gap-16 '>
           <div className='w-2/5 '>
             <h2 className='text-4xl text-[#262626] font-bold'>
-              About Skillbridge
+              {t('about_page.header_title')}
             </h2>
           </div>
           <div className='w-3/5'>
             <p className='text-gray-500 leading-relaxed'>
-              Welcome to our platform, where we are passionate about
-              empowering individuals to master the world of design
-              and development. We offer a wide range of online courses
-              designed to equip learners with the skills and knowledge
-              needed to succeed in the ever-evolving digital landscape.
+              {t('about_page.header_description')}
             </p>
           </div>
         </div>
@@ -40,75 +39,37 @@ export default function AboutUs() {
       <div className='py-10'>
         <div className='container mx-auto'>
           <h2 className='text-4xl text-[#262626] font-bold'>
-            Achievements
+            {t('about_page.achievements_title')}
           </h2>
-          <p className='text-gray-500 mt-3'>Our commitment to excellence has
-            led us to achieve significant
-            milestones along our journey.
-            Here are some of our notable achievements
+          <p className='text-gray-500 mt-3'>
+            {t('about_page.achievements_description')}
           </p>
         </div>
       </div>
 
       <div className='container mx-auto flex gap-8 py-10'>
         <AboutSection
-          icon={
-            <i className="fa-solid fa-star text-[#ff9500]"></i>
-          }
-          title={<> <br /> rovide practical skills </>}
-          paragraph={
-            <>
-              we focus on delivering practical skills that
-              are relevant to the current industry <br /> demands, our courses
-              are designed to equip learners with the knowledge and tools
-              needed to excel im their chosen fields.
-            </>
-          }
+          icon={<i className="fa-solid fa-star text-[#ff9500]"></i>}
+          title={<>{t('about_page.section_title')}</>}
+          paragraph={<>{t('about_page.section_paragraph')}</>}
         />
         <AboutSection
-          icon={
-            <i className="fa-solid fa-book text-[#ff9500]"></i>
-          }
-          title={<> <br /> rovide practical skills </>}
-          paragraph={
-            <>
-              we focus on delivering practical skills that
-              are relevant to the current industry <br /> demands, our courses
-              are designed to equip learners with the knowledge and tools
-              needed to excel im their chosen fields.
-            </>
-          }
+          icon={<i className="fa-solid fa-book text-[#ff9500]"></i>}
+          title={<>{t('about_page.section_title')}</>}
+          paragraph={<>{t('about_page.section_paragraph')}</>}
         />
       </div>
 
       <div className='container mx-auto flex gap-8'>
         <AboutSection
-          icon={
-            <i className="fa-solid fa-puzzle-piece text-[#ff9500]"></i>
-          }
-          title={<> <br /> rovide practical skills </>}
-          paragraph={
-            <>
-              we focus on delivering practical skills that
-              are relevant to the current industry <br /> demands, our courses
-              are designed to equip learners with the knowledge and tools
-              needed to excel im their chosen fields.
-            </>
-          }
+          icon={<i className="fa-solid fa-puzzle-piece text-[#ff9500]"></i>}
+          title={<>{t('about_page.section_title')}</>}
+          paragraph={<>{t('about_page.section_paragraph')}</>}
         />
         <AboutSection
-          icon={
-            <i className="fa-solid fa-book text-[#ff9500]"></i>
-          }
-          title={<> <br /> rovide practical skills </>}
-          paragraph={
-            <>
-              we focus on delivering practical skills that
-              are relevant to the current industry <br /> demands, our courses
-              are designed to equip learners with the knowledge and tools
-              needed to excel im their chosen fields.
-            </>
-          }
+          icon={<i className="fa-solid fa-book text-[#ff9500]"></i>}
+          title={<>{t('about_page.section_title')}</>}
+          paragraph={<>{t('about_page.section_paragraph')}</>}
         />
       </div>
 
@@ -116,15 +77,15 @@ export default function AboutUs() {
         <div className="container mx-auto flex justify-between items-center">
           <div>
             <h2 className="text-4xl font-bold text-gray-800 ">
-              <span className="text-[#ff9500]">Together,</span> let's shape the future of digital innovation
+              <span className="text-[#ff9500]">{t('about_page.cta_title_highlight')}</span>{t('about_page.cta_title_main')}
             </h2>
             <p className="text-gray-500 mt-4">
-              Join us on this exciting learning journey and unlock your potential in design and development.
+              {t('about_page.cta_description')}
             </p>
           </div>
           <div>
             <MyButton type="button">
-              Join Now
+              {t('about_page.cta_button')}
             </MyButton>
           </div>
         </div>

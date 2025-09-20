@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
 
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -25,6 +26,7 @@ const MyButton = ({ children, disabled, ...restProps }) => {
 };
 
 function Login() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const db = getFirestore();
   const [email, setEmail] = useState("");
@@ -97,8 +99,8 @@ function Login() {
       message.type === "success"
         ? "bg-green-50 border border-green-300 text-green-800"
         : message.type === "error"
-        ? "bg-red-50 border border-red-300 text-red-800"
-        : "bg-gray-50 border border-gray-300 text-gray-800";
+          ? "bg-red-50 border border-red-300 text-red-800"
+          : "bg-gray-50 border border-gray-300 text-gray-800";
 
     return (
       <div className={`${base}`}>
@@ -127,9 +129,9 @@ function Login() {
     if (name === "useremail") {
       setEmail(value);
       if (value.length === 0) {
-        setErrors({ ...errors, emailErr: "Email is required" });
+        setErrors({ ...errors, emailErr: t("auth.validation.emailRequired") });
       } else if (!emailRegex.test(value)) {
-        setErrors({ ...errors, emailErr: "Invalid email format" });
+        setErrors({ ...errors, emailErr: t("auth.validation.emailInvalid") });
       } else {
         setErrors({ ...errors, emailErr: "" });
       }
@@ -138,11 +140,11 @@ function Login() {
     if (name === "userpass") {
       setPass(value);
       if (value.length === 0) {
-        setErrors({ ...errors, passErr: "Password is required" });
+        setErrors({ ...errors, passErr: t("auth.validation.passRequired") });
       } else if (!passRegex.test(value)) {
         setErrors({
           ...errors,
-          passErr: "Password must be at least 6 characters",
+          passErr: t("auth.validation.passMin"),
         });
       } else {
         setErrors({ ...errors, passErr: "" });
@@ -167,11 +169,11 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !pass) {
-      await showMessage({ text: "Please enter email and password.", type: "error" });
+      await showMessage({ text: t("auth.messages.enterEmailPass"), type: "error" });
       return;
     }
     if (errors.emailErr || errors.passErr) {
-      await showMessage({ text: "Please fix the errors first.", type: "error" });
+      await showMessage({ text: t("auth.messages.fixErrors"), type: "error" });
       return;
     }
     try {
@@ -181,7 +183,7 @@ function Login() {
         await navigateByRole(uid);
       } else {
         // Show Message with requireInteraction
-        await showMessage({ text: "Logged in successfully!", type: "success", requireInteraction: true });
+        await showMessage({ text: t("auth.messages.loggedIn"), type: "success", requireInteraction: true });
         navigate("/homePage");
       }
     } catch (err) {
@@ -198,7 +200,7 @@ function Login() {
       //   await navigateByRole(uid);
       // } else {
       //   await showMessage({ text: "Logged in with Google!", type: "success", requireInteraction: true });
-        navigate("/");
+      navigate("/");
       // }
     } catch (err) {
       await showMessage({ text: mapLoginError(err?.code), type: "error" });
@@ -209,12 +211,12 @@ function Login() {
   const onForgotPassword = async (e) => {
     e.preventDefault();
     if (!email || !emailRegex.test(email)) {
-      await showMessage({ text: "Please enter a valid email to receive the reset link.", type: "error" });
+      await showMessage({ text: t("auth.messages.forgotNeedEmail"), type: "error" });
       return;
     }
     try {
       await resetPassword(email);
-      await showMessage({ text: "Password reset email sent.", type: "success" });
+      await showMessage({ text: t("auth.messages.resetSent"), type: "success" });
     } catch (err) {
       await showMessage({ text: mapLoginError(err?.code), type: "error" });
     }
@@ -234,7 +236,7 @@ function Login() {
       <div className="flex flex-col lg:flex-row justify-center items-center w-full max-w-7xl gap-20">
         <div className="flex-grow flex flex-col justify-center p-8 hidden lg:flex">
           <div className="max-w-xl text-left text-gray-700">
-            <h2 className="text-3xl font-bold mb-4">Students Testimonials</h2>
+            <h2 className="text-3xl font-bold mb-4">{t("auth.Testimonials.StudentsTestimonials")}</h2>
             <p className="mb-8">
               Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id
               imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit
@@ -243,9 +245,7 @@ function Login() {
 
             <div className="bg-oklch(98.5% 0 0) p-6 rounded-2xl shadow-lg mb-8 text-left">
               <p className="italic text-gray-600 mb-4">
-                "The web design course provided a solid foundation for me. The instructors
-                were knowledgeable and supportive, and the interactive learning
-                environment was engaging. I highly recommend it!"
+                {t("auth.Testimonials.desc")}
               </p>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
@@ -259,11 +259,11 @@ function Login() {
                     }}
                   ></div>
                   <div>
-                    <h4 className="font-bold text-gray-800">Sarah L</h4>
+                    <h4 className="font-bold text-gray-800">{t("auth.Testimonials.name")}</h4>
                   </div>
                 </div>
                 <button className="bg-white hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-md border border-gray-300">
-                  Read Full Story
+                  {t("auth.Testimonials.readFullStory")}
                 </button>
               </div>
             </div>
@@ -284,21 +284,21 @@ function Login() {
 
         <div className="w-full lg:w-[600px] flex items-center justify-center p-8">
           <div className="oklch(98.5% 0 0) shadow-lg p-8 rounded-2xl w-full max-w-sm">
-            <h1 className="text-center mb-6 text-black font-bold text-2xl">Login</h1>
+            <h1 className="text-center mb-6 text-black font-bold text-2xl">{t("auth.login.title")}</h1>
             <div className="text-center mb-4">
               <p className="text-center text-md text-gray-500 ">
-                Welcome back! Please log in to access your account.
+                {t("auth.login.welcome")}
               </p>
             </div>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-black-400 text-sm font-bold mb-2 text-left">Email</label>
+                <label className="block text-black-400 text-sm font-bold mb-2 text-left">{t("auth.login.email")}</label>
                 <input
                   type="text"
                   name="useremail"
                   value={email}
                   onChange={handleForm}
-                  placeholder="Enter your email"
+                  placeholder={t("auth.login.emailPh")}
                   className="shadow appearance-none rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring-0 text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
                 />
                 {errors.emailErr && (
@@ -307,13 +307,13 @@ function Login() {
               </div>
 
               <div className="mb-1 relative">
-                <label className="block text-black-400 text-sm font-bold mb-2 text-left">Password</label>
+                <label className="block text-black-400 text-sm font-bold mb-2 text-left">{t("auth.login.password")}</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="userpass"
                   value={pass}
                   onChange={handleForm}
-                  placeholder="Enter your password"
+                  placeholder={t("auth.login.passwordPh")}
                   className="shadow appearance-none rounded w-full py-2 px-3 leading-tight focus:outline-none focus:ring-0 text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500 pr-10"
                 />
                 <span
@@ -341,7 +341,7 @@ function Login() {
                   onClick={onForgotPassword}
                   className="text-gray-400 hover:text-[#ff9500] transition-colors duration-200"
                 >
-                  Forgot password?
+                  {t("auth.login.forgot")}
                 </a>
               </div>
 
@@ -354,7 +354,7 @@ function Login() {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="form-checkbox h-4 w-4 text-[#ff9500] rounded-full"
                 />
-                <label htmlFor="rememberMe" className="ml-2 text-sm text-gray-400">Remember me</label>
+                <label htmlFor="rememberMe" className="ml-2 text-sm text-gray-400">{t("auth.login.remember")}</label>
               </div>
 
               <MyButton
@@ -366,27 +366,27 @@ function Login() {
                 }
                 type="submit"
               >
-                Login
+                {t("auth.login.cta")}
               </MyButton>
 
               <div className="flex items-center my-4">
                 <div className="flex-grow border-t border-gray-700"></div>
-                <span className="flex-shrink mx-4 text-gray-400">OR</span>
+                <span className="flex-shrink mx-4 text-gray-400">{t("auth.login.or")}</span>
                 <div className="flex-grow border-t border-gray-700"></div>
               </div>
 
               <button
                 type="button"
                 onClick={handleGoogle}
-                className="flex items-center justify-center space-x-2 w-full py-2 px-4 rounded border text-gray-700 hover:bg-gray-100 transition-colors mb-4 focus:outline-none focus:ring-0"
+                className="flex items-center justify-center space-x-2 w-full py-2 px-4 rounded border text-gray-700 hover:bg-red-600 transition-colors mb-4 focus:outline-none focus:ring-0"
               >
-                <span className="text-black font-bold text-base">Login with Google</span>
+                <span className="text-white font-bold text-base">{t("auth.login.google")}</span>
               </button>
 
               <div className="text-center text-sm mt-4 text-gray-400">
-                Don't have an account?{" "}
+                {t("auth.login.noAccount")}{" "}
                 <Link to="/register" className="text-black hover:text-black cursor-pointer">
-                  Sign up
+                  {t("auth.login.signup")}
                 </Link>
               </div>
             </form>

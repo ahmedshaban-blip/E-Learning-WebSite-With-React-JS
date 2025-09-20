@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 1rem;
   /* text-align: center; */
@@ -54,3 +54,328 @@ a {
 a:hover {
   color: white; /* <-- This is the problem */
 }
+
+
+
+
+
+
+
+
+
+
+/* ====== Root container ====== */
+
+
+/* ====== أزرار/روابط عامة ====== */
+button:hover { border-color: white; }
+
+/* مهم: بلاش تلوّن الروابط بالأبيض دايمًا */
+a { color: var(--link); text-decoration: none; }
+a:hover { opacity: .9; }
+
+/* ====== لوحة الألوان عبر المتغيرات ====== */
+:root {
+  --primary:    #ff9500;
+
+  /* Light palette (دافئ خفيف يناسب البرتقالي) */
+  --bg:         #fffdf9;   /* خلفية عامة off-white */
+  --surface:    #faf7f2;   /* سطح الكروت بدل الأبيض الصريح */
+  --muted:      #f3f0eb;   /* خلفيات ثانوية خفيفة */
+  --text:       #0b1324;   /* نص غامق هادئ */
+  --text-muted: #475569;   /* Slate-600 */
+  --border:     #e8e3db;   /* رمادي دافئ للحدود */
+  --link:       #0ea5e9;   /* Sky-500 */
+  --shadow:     0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* Dark palette */
+.dark {
+  --bg:         #0f1115;   /* خلفية عامة */
+  --surface:    #13161b;   /* بطاقات/نَفبار */
+  --muted:      #0b0e13;   /* خلفيات ثانوية */
+  --text:       #e5e7eb;   /* نص فاتح */
+  --text-muted: #9aa4b2;   /* نص ثانوي */
+  --border:     #1f2937;   /* حدود داكنة */
+  --link:       #38bdf8;   /* Sky-400 */
+  --shadow:     0 1px 2px rgba(0,0,0,0.45);
+}
+
+/* ====== قواعد أساسية عامة ====== */
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* عناصر إدخال عامة */
+input, select, textarea {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+/* بطاقات عامة قابلة لإعادة الاستخدام */
+.card-like {
+  background-color: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* ====== طبقة توافق مع كلاسات Tailwind الشائعة ====== */
+/* خَلّي أي bg-white يمشي على surface بدل الأبيض الصريح */
+.bg-white { background-color: var(--surface) !important; }
+
+/* رماديات خفيفة */
+.bg-gray-50  { background-color: var(--muted)   !important; }
+.bg-gray-100 { background-color: #e9eef1        !important; } /* درجة وسيطة */
+
+.border, .border-gray-200 { border-color: var(--border) !important; }
+.shadow, .shadow-md, .shadow-lg { box-shadow: var(--shadow) !important; }
+
+/* نصوص */
+.text-black,
+.text-gray-900  { color: var(--text)       !important; }
+.text-gray-700,
+.text-gray-600,
+.text-gray-500  { color: var(--text-muted) !important; }
+
+/* Hover شائع */
+.hover\:bg-gray-200:hover { background-color: #ece9e3 !important; }
+.hover\:text-black:hover  { color: var(--text)        !important; }
+
+/* أقسام معروفة */
+nav.relative { background-color: var(--surface); }
+
+/* صناديق الفيديو/iframe */
+.shadow-lg.aspect-video,
+.relative.overflow-hidden.rounded-lg.shadow-lg {
+  background-color: var(--surface) !important;
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--border);
+}
+
+/* خطوط حدود الأقسام */
+.border-t, .border-b, .divide-y > * + * { border-color: var(--border) !important; }
+
+/* أزرار outline البيضاء الشائعة */
+.bg-white.text-orange-500 {
+  background-color: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* ====== تحسينات للـ Dark (تعمل فوق القواعد العامة) ====== */
+.dark .bg-white       { background-color: var(--surface) !important; }
+.dark .bg-gray-50     { background-color: var(--muted)   !important; }
+.dark .bg-gray-100    { background-color: #111418        !important; }
+
+.dark .text-black,
+.dark .text-gray-900  { color: var(--text)       !important; }
+.dark .text-gray-700,
+.dark .text-gray-600  { color: var(--text-muted) !important; }
+
+.dark .border,
+.dark .border-gray-200 { border-color: var(--border) !important; }
+
+.dark .hover\:bg-gray-200:hover { background-color: #1a1f27 !important; }
+.dark .hover\:text-black:hover  { color: var(--text)        !important; }
+
+.dark .shadow, .dark .shadow-md, .dark .shadow-lg { box-shadow: var(--shadow) !important; }
+.dark nav.relative { background-color: var(--surface) !important; }
+
+.dark .bg-gray-50.p-6,
+.dark .bg-gray-50.py-12,
+.dark .bg-gray-50.rounded-lg {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border);
+}
+
+.dark .text-gray-500.text-center { color: var(--text-muted) !important; }
+.dark .bg-gray-100 { background-color: #171b22 !important; }
+.dark .text-gray-800 { color: var(--text) !important; }
+
+/* ====== الزر المحدد: bg-[#E4E4E7] بدون تعديل JSX ====== */
+/* ✅ لاحظ الهروب الصحيح للقوس المربع المغلق \] */
+.dark .bg-\[\#E4E4E7\] {
+  background-color: #1a1f27 !important;          /* سطح داكن ناعم */
+  color: var(--text) !important;                  /* نص فاتح */
+  border: 1px solid var(--border) !important;     /* حدود الداكن */
+}
+.dark .bg-\[\#E4E4E7\]:hover {
+  filter: none !important;
+  background-color: #202634 !important;           /* hover أدكن بسيط */
+}
+.dark .bg-\[\#E4E4E7\].disabled\:opacity-50,
+.dark .bg-\[\#E4E4E7\][disabled] {
+  opacity: .5 !important;
+  cursor: not-allowed !important;
+}
+/* عندك class غير قياسي text-black-500—خلّيه متناسق */
+.dark .text-black-500 { color: var(--text) !important; }
+.dark .bg-white {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* 2) الشريط الرمادي الفاتح أعلى الصفحة bg-[#f7f7f8] */
+.dark .bg-\[\#f7f7f8\] {
+  background-color: var(--muted) !important;     /* خلفية ثانوية داكنة خفيفة */
+  color: var(--text) !important;
+}
+
+/* 3) حدود القسم العلوي */
+.dark .border-gray-200 {
+  border-color: var(--border) !important;
+}
+
+/* 4) عناوين مضبوطة يدويًا على #262626 */
+.dark .text-\[\#262626\] {
+  color: var(--text) !important;
+}
+
+/* 5) نصوص رمادية داخل الأقسام */
+.dark .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+/* 6) كرت الـ CTA الأبيض في آخر الصفحة (bg-white + shadow) */
+.dark .rounded-lg.shadow-md.bg-white {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* (اختياري) تأكيد الظلال في الداكن */
+.dark .shadow,
+.dark .shadow-md,
+.dark .shadow-lg {
+  box-shadow: var(--shadow) !important;
+}
+
+
+
+/* الغي تأثير hover:brightness علشان ما يفتحش اللون في الداكن */
+.dark .bg-\[\#e4e4e7\]:hover,
+.dark .bg-\[\#E4E4E7\]:hover {
+  filter: none !important;
+  background-color: #0d84b3 !important;          /* درجة أدكن بسيطة للهوفر */
+}
+
+
+/* زرار Cancel في الداكن */
+.dark .bg-gray-200 {
+  background-color: #1a1f27 !important;   /* سطح داكن ناعم */
+  color: var(--text) !important;           /* نص فاتح */
+  border: 1px solid var(--border) !important;
+}
+
+/* هوفر واضح في الداكن */
+.dark .bg-gray-200:hover {
+  background-color: #202634 !important;
+}
+
+/* تأكيد لون النص لو استُخدم text-gray-800 */
+.dark .text-gray-800 {
+  color: var(--text) !important;
+}
+
+/* زر أساسي (نفس login) */
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem; /* py-2 px-4 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-primary:focus { outline: none; box-shadow: none; }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+/* متوافق مع الدارك تلقائيًا لأن var(--primary) ثابت والنص أبيض */
+
+
+
+
+.btn-primary{
+  background:#ff9500; color:#fff; border:1px solid transparent;
+  border-radius:.5rem; font-weight:700; padding:.5rem 1rem;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.btn-primary:hover{ filter:brightness(1.05); }
+.btn-primary:disabled{ opacity:.5; cursor:not-allowed; }
+.dark .btn-primary{ background:#ff9500; color:#fff; }
+
+
+
+
+
+
+
+/* Dark mode override للبلوك ده تحديدًا */
+.dark .bg-\[\#e4e4e7\],
+.dark .bg-\[\#E4E4E7\] {
+  background-color: #ff9500 !important;
+}
+
+/* لو العنصر عليه text-gray-800 خلّي النص أبيض في الدارك */
+.dark .bg-\[\#e4e4e7\].text-gray-800,
+.dark .bg-\[\#E4E4E7\].text-gray-800 {
+  color: #ffffff !important;
+}
+
+/* (اختياري) هوفر بسيط في الدارك */
+.dark .bg-\[\#e4e4e7\]:hover,
+.dark .bg-\[\#E4E4E7\]:hover {
+  filter: none !important;
+  background-color: #ff9f1a !important; /* درجة أدكن خفيفة */
+}
+
+
+/* Light (افتراضي) */
+#userNameNav {
+  color: #000000 !important;
+}
+
+/* Dark */
+.dark #userNameNav {
+  color: #ffffff !important;
+}
+
+
+
+
+
+
+
+
+/* Gradient & shadow للسعر */
+.price-gradient {
+  background: linear-gradient(90deg, #ff9500 0%, #ff9f1a 100%);
+}
+.price-shadow {
+  box-shadow: 0 6px 16px rgba(255, 149, 0, 0.25);
+}
+
+/* تحسين التركيز لذوي لوحات المفاتيح */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 149, 0, 0.25);
+  border-radius: 12px;
+}
+
+/* دعم line-clamp لو Tailwind plugin مش مفعّل */
+.line-clamp-2, .line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

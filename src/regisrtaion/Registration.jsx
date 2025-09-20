@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { signUpWithEmail, mapAuthError } from "../lib/auth";
 import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const MyButton = ({ children, disabled, ...restProps }) => {
   return (
     <button
@@ -15,6 +16,7 @@ const MyButton = ({ children, disabled, ...restProps }) => {
 };
 
 function Registration() {
+  const { t } = useTranslation();
   const db = getFirestore();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -218,63 +220,63 @@ const handleSubmit = async (e) => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="oklch(98.5% 0 0) shadow-lg p-8 rounded-2xl w-96 text-white">
-        <h3 className="text-center mb-6 text-black font-bold text-2xl">Register</h3>
+        <h3 className="text-center mb-6 text-black font-bold text-2xl">{t("auth.register.title")}</h3>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-400 text-sm font-bold mb-2">Name</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.name")}</label>
             <input
               type="text"
-              name="username"
+              name="usrname"
               value={name}
               onChange={handleform}
-              placeholder="Enter your name"
+              placeholder={t("auth.register.namePh")}
               className="shadow appearance-none border oklch(96.7% 0.001 286.375) rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
             />
             {errors.nameErr && <p className="text-red-500 text-xs italic mt-2">{errors.nameErr}</p>}
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-400 text-sm font-bold mb-2">Email</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.email")}</label>
             <input
               type="text"
               name="useremail"
               value={email}
               onChange={handleform}
-              placeholder="Enter your email"
+              placeholder={t("auth.register.emailPh")}
               className="shadow appearance-none border oklch(96.7% 0.001 286.375) rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
             />
             {errors.emailErr && <p className="text-red-500 text-xs italic mt-2">{errors.emailErr}</p>}
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-400 text-sm font-bold mb-2">Password</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.password")}</label>
             <input
               type="password"
               name="userpass"
               value={pass}
               onChange={handleform}
-              placeholder="Enter your password"
+              placeholder={t("auth.register.passwordPh")}
               className="shadow appearance-none border oklch(96.7% 0.001 286.375) rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
             />
             {errors.passErr && <p className="text-red-500 text-xs italic mt-2">{errors.passErr}</p>}
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-400 text-sm font-bold mb-2">Re-enter Password</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.repass")}</label>
             <input
               type="password"
               name="repass"
               value={rePass}
               onChange={handleform}
-              placeholder="Re-enter your password"
+              placeholder={t("auth.register.repassPh")}
               className="shadow appearance-none border oklch(96.7% 0.001 286.375) rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
             />
             {errors.rePassErr && <p className="text-red-500 text-xs italic mt-2">{errors.rePassErr}</p>}
           </div>
 
           <div className="mb-4">
-            <span className="block text-gray-400 text-sm font-bold mb-2">Role</span>
+            <span className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.Role")}</span>
             <div className="flex items-center gap-6">
               <label className="inline-flex items-center gap-2">
                 <input
@@ -284,7 +286,7 @@ const handleSubmit = async (e) => {
                   onChange={handleform}
                   className="rounded"
                 />
-                <span className="text-gray-700">Student</span>
+                <span className="text-gray-700">{t("auth.register.student")}</span>
               </label>
 
               <label className="inline-flex items-center gap-2">
@@ -295,20 +297,20 @@ const handleSubmit = async (e) => {
                   onChange={handleform}
                   className="rounded"
                 />
-                <span className="text-gray-700">Admin</span>
+                <span className="text-gray-700">{t("auth.register.instructor")}</span>
               </label>
             </div>
           </div>
 
           {isAdmin && (
             <div className="mb-6">
-              <label className="block text-gray-400 text-sm font-bold mb-2">Admin ID</label>
+              <label className="block text-gray-400 text-sm font-bold mb-2">{t("auth.register.Admin ID")}</label>
               <input
                 type="text"
                 name="adminId"
                 value={adminId}
                 onChange={handleform}
-                placeholder="Enter Admin ID"
+                placeholder={t("auth.register.Admin ID ph")}
                 className="shadow appearance-none border oklch(96.7% 0.001 286.375) rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-900 bg-oklch(96.7% 0.001 286.375) placeholder:text-gray-500"
               />
               {errors.adminIdErr && <p className="text-red-500 text-xs italic mt-2">{errors.adminIdErr}</p>}
@@ -316,11 +318,11 @@ const handleSubmit = async (e) => {
           )}
 
           <MyButton type="submit" disabled={disableSubmit}>
-            {isLoading ? "Loading..." : "Register"}
+            {isLoading ? "Loading..." : t("auth.register.cta")}
           </MyButton>
             <div className="flex items-center justify-center mt-4"></div>
-              <span className="text-gray-600 mr-2">Already have an account?</span>
-              <Link to="/login" className="text-black hover:text-black cursor-pointer">Login</Link>
+              <span className="text-gray-600 mr-2">{t("auth.register.already")}</span>
+              <Link to="/login" className="text-black hover:text-black cursor-pointer">{t("auth.register.login")}</Link>
           {submitErr && <p className="text-red-500 text-xs italic mt-3">{submitErr}</p>}
           {submitOk && <p className="text-green-600 text-sm mt-3">{submitOk}</p>}
         </form>
