@@ -24,7 +24,7 @@
 - [🚀 Live Demo](#-live-demo)
 - [✨ Features](#-features)
 - [🛠️ Tech Stack](#️-tech-stack)
-- [🎯 Admin Dashboard](#-admin-dashboard)
+- [🎯 Instructor Dashboard](#-admin-dashboard)
 - [📁 Installation](#-installation)
 - [📂 Project Structure](#-project-structure)
 - [🌐 Environment Variables](#-environment-variables)
@@ -50,7 +50,7 @@ Experience the platform in action:
 
 **🌐 [https://up-course-1.vercel.app/](https://up-course-1.vercel.app/)**
 
-> *Try the demo with sample courses and explore both student and admin functionalities*
+> *Try the demo with sample courses and explore both student and Instructor functionalities*
 
 ## ✨ Features
 
@@ -71,13 +71,13 @@ Experience the platform in action:
 <td width="50%">
 
 ### 👨‍💼 Instructor Features
-- ✅ **Dashboard**: Comprehensive admin interface
+- ✅ **Dashboard**: Comprehensive Instructor interface
 - ✅ **Course Management**: Full CRUD operations
 - ✅ **Media Upload**: Supabase integration for images
 - ✅ **YouTube Integration**: Embed playlists
 - ✅ **Category Management**: Organize courses
 - ✅ **User Analytics**: Track enrollment data
-- ✅ **Secure Access**: Admin-only authentication
+- ✅ **Secure Access**: Instructor-only authentication
 
 </td>
 </tr>
@@ -131,9 +131,9 @@ Internationalization: i18next
 Hosting: Vercel
 ```
 
-## 🎯 Admin Dashboard
+## 🎯 Instructor Dashboard
 
-The admin dashboard provides comprehensive course management capabilities:
+The Instructor dashboard provides comprehensive course management capabilities:
 
 ### 📊 Dashboard Features
 
@@ -143,9 +143,9 @@ The admin dashboard provides comprehensive course management capabilities:
 - **👥 User Management**: View student enrollments
 - **💰 Revenue Tracking**: Payment and enrollment analytics
 
-### 🔑 Admin Access
+### 🔑 Instructor Access
 
-> **Note**: Admin access requires registration with a pre-approved Admin ID. Contact the administrator for access credentials.
+> **Note**: Instructor access requires registration with a pre-approved Instructor ID. Contact the administrator for access credentials.
 
 ## 📁 Installation
 
@@ -193,7 +193,7 @@ npm test            # Run tests
 
 ```
 src/
-├── 🗂️ AdminDashboard/     # Admin interface components
+├── 🗂️ AdminDashboard/     # Instructor interface components
 ├── 🧩 Component/          # Reusable UI components
 │   ├── Cards/            # Course cards, info cards
 │   ├── Buttons/          # Custom button components
