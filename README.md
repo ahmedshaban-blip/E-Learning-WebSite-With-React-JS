@@ -70,7 +70,7 @@ Experience the platform in action:
 </td>
 <td width="50%">
 
-### 👨‍💼 Admin Features
+### 👨‍💼 Instructor Features
 - ✅ **Dashboard**: Comprehensive admin interface
 - ✅ **Course Management**: Full CRUD operations
 - ✅ **Media Upload**: Supabase integration for images
