@@ -379,3 +379,13 @@ nav.relative { background-color: var(--surface); }
   overflow: hidden;
 }
 
+
+
+
+/* موضع زر الهامبرجر حسب اتجاه الصفحة */
+.nav-start { left: 0; right: auto; }
+[dir="rtl"] .nav-start { right: 0; left: auto; }
+
+/* إخفاء شريط التمرير لشريط الروابط على التابلت */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

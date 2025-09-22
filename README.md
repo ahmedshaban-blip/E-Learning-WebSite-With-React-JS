@@ -1,96 +1,159 @@
+# Up-Course
 
-# 🚀 Up-Course
-
-An interactive **E-Learning platform** built with **React.js**, designed to unlock creativity and empower learners through online design and development courses.
-
-Deployed on **Vercel** with seamless GitHub integration for continuous deployment.
+Up-Course is a React-based e-learning platform for publishing and consuming design and development courses. It uses Firebase for data/auth, optional Supabase Storage for hosting media, and Tailwind CSS for styling. The app is deployed to Vercel with continuous deployment from GitHub.
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
-👉 [Up-Course](https://up-course-1.vercel.app/)
-
----
-
-## ✨ Features
-
-* 🎨 **Modern UI** with Tailwind CSS
-* ⚡ **Fast Deployment** via Vercel
-* 🔄 **Continuous Integration** with GitHub
-* 📚 **Creative Learning Content** (Design & Development)
-* 📱 **Responsive Design** – Works on all devices
+[https://up-course-1.vercel.app/](https://up-course-1.vercel.app/)
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-* **Frontend:** React.js, Tailwind CSS
-* **Deployment:** Vercel
-* **Version Control:** Git & GitHub
+* Modern, responsive UI built with Tailwind CSS.
+* Courses listing with search, category filtering, and pagination.
+* Wishlist/Favorites persisted per user (Redux Toolkit + Firebase).
+* Authentication via Firebase (AuthContext wrapper).
+* Optional video hosting via Supabase Storage.
+* CI/CD: automatic deployments to Vercel on push to `main`.
 
 ---
 
-## 🚀 Getting Started
+## Architecture
 
-### 1. Clone the repository
+* **Frontend:** React (Vite), React Router, Redux Toolkit (wishlist slice), Context API for auth.
+* **Styling:** Tailwind CSS.
+* **Data & Auth:** Firebase (Firestore + Auth).
+* **Media (optional):** Supabase Storage for video files.
+* **Deployment:** Vercel (static hosting).
+
+---
+
+## Tech Stack
+
+* **React**, **Vite**, **React Router**
+* **Redux Toolkit**
+* **Tailwind CSS**
+* **Firebase** (Firestore, Auth)
+* **Supabase Storage** (optional)
+* **Vercel** (CDN + CI/CD)
+
+---
+
+
+
+
+
+---
+
+## Prerequisites
+
+* Node.js ≥ 18
+* npm ≥ 9
+* Firebase project (Firestore + Auth)
+* (Optional) Supabase project (Storage enabled)
+* Vercel account linked to your GitHub repository
+
+---
+
+
+
+## Getting Started
+
+### 1) Clone
 
 ```bash
 git clone https://github.com/Abdulrhman-Rabea/Up-Course.git
 cd Up-Course
 ```
 
-### 2. Install dependencies
+### 2) Install
 
 ```bash
 npm install
 ```
 
-### 3. Run the development server
+### 3) Develop
 
 ```bash
 npm run dev
 ```
 
-### 4. Build for production
+### 4) Build
 
 ```bash
 npm run build
 ```
 
+### 5) Preview (local static preview)
+
+```bash
+npm run preview
+```
+
 ---
 
-## 📦 Deployment
+## Core Workflows
 
-This project is deployed with **Vercel**. Every push to the `main` branch triggers an automatic deployment.
+### Courses: list, search, filter, paginate
+
+* Data fetched from Firestore (`getAllData('courses')`).
+* URLSearchParams used for `cat` (category) and `q` (query).
+* Client-side pagination (configurable items per page) via `Pagination` component.
+
+### Wishlist/Favorites
+
+* Redux slice: `wishlistSlice`.
+* Firestore integration:
+
+  * `addCourseToFav(userId, courseId)`
+  * `removeCourseFromFav(userId, courseId)`
+  * `getUserFavCourses(userId)`
+* Synced per authenticated user.
+
+### Authentication
+
+* `AuthContext` exposes `user` state from Firebase Auth.
+* Gate features (e.g., adding to favorites) behind auth checks.
+
+### Video Hosting (optional)
+
+* Upload course videos to a Supabase Storage bucket.
+* Store resulting public URL in course document as `videoUrl`.
+* Render video via standard HTML5 `<video>` or a player component.
 
 ---
 
-## 👨‍💻 Team
+## Deployment (Vercel)
+
+1. Push the repository to GitHub.
+2. Import the project into Vercel.
+3. Add environment variables in Vercel settings.
+4. Set **Framework Preset**: *Vite* (if not auto-detected).
+5. Every push to `main` triggers a new deployment.
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/<name>`
+3. Commit and push: `git commit -m "feat: <summary>"` then `git push origin feature/<name>`
+4. Open a Pull Request.
+
+---
+
+## Dev Team
 
 * [Ahmed](https://github.com/ahmedshaban-blip)
 * [Doha](https://github.com/Doha-AboElkasem)
 * Hoda
 
+--- 
+**Unlock your creative potential with Up-Course!** 
 ---
+## License
 
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repo
-2. Create a new branch (`feature/your-feature`)
-3. Commit changes and push
-4. Create a Pull Request 🎉
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
-🔥 **Unlock your creative potential with Up-Course!**
-
----
+MIT License. See `LICENSE` for details.

@@ -16,67 +16,66 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs/ContactUs";
-import Wishlist from "./pages/Wishlist"; // 1. استيراد صفحة الـ Wishlist
+import Wishlist from "./pages/Wishlist";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 function App() {
-    let router = createBrowserRouter([
-        {
-            path: "/",
-            element: <Layout />,
-            children: [
-                { index: true, element: <Home /> },
-                { path: "register", element: <Registration /> },
-                { path: "login", element: <Login /> },
-                {
-                    path
-                        : "contact", element: <ContactUs />
-                },
-                { path: "AdminPage", element: <AdminPage /> },
-                { path: "add-course", element: <AddCoursePage /> },
-                { path: "edit-course/:courseId", element: <EditCoursePage /> },
-                { path: "courses/:id", element: <CourseDetails /> },
+	let router = createBrowserRouter([
+		{
+			path: "/",
+			element: <Layout />,
+			children: [
+				{ index: true, element: <Home /> },
+				{ path: "register", element: <Registration /> },
+				{ path: "login", element: <Login /> },
+				{
+					path: "contact",
+					element: <ContactUs />,
+				},
+				{ path: "AdminPage", element: <AdminPage /> },
+				{ path: "add-course", element: <AddCoursePage /> },
+				{ path: "edit-course/:courseId", element: <EditCoursePage /> },
+				{ path: "courses/:id", element: <CourseDetails /> },
 
-                {
-                    path: "checkout",
-                    element: (
-                        <ProtectedRoute>
-                            <PayPalCheckout />
-                        </ProtectedRoute>
-                    ),
-                },
-                {
-                    path: "my-courses",
-                    element: (
-                        <ProtectedRoute>
-                            <MyCourses />
-                        </ProtectedRoute>
-                    ),
-                },
-                {
-                    path: "wishlist",
-                    element: (
-                        <ProtectedRoute>
-                            <Wishlist />
-                        </ProtectedRoute>
-                    ),
-                },
-                // ----------------------------------------------
-                { path: "Courses", element: <AllCourses /> },
-                { path: "about", element: <AboutUs /> },
-                { path: "*", element: <NotFound /> },
-            ],
-        },
-    ]);
+				{
+					path: "checkout",
+					element: (
+						<ProtectedRoute>
+							<PayPalCheckout />
+						</ProtectedRoute>
+					),
+				},
+				{
+					path: "my-courses",
+					element: (
+						<ProtectedRoute>
+							<MyCourses />
+						</ProtectedRoute>
+					),
+				},
+				{
+					path: "wishlist",
+					element: (
+						<ProtectedRoute>
+							<Wishlist />
+						</ProtectedRoute>
+					),
+				},
+				// ----------------------------------------------
+				{ path: "Courses", element: <AllCourses /> },
+				{ path: "about", element: <AboutUs /> },
+				{ path: "*", element: <NotFound /> },
+			],
+		},
+	]);
 
-    return (
-        <Provider store={store}>
-        <AuthProvider >
-            <RouterProvider router={router}></RouterProvider>
-        </AuthProvider>
-        
-        </Provider>
-    );
+	return (
+		<Provider store={store}>
+			<AuthProvider>
+				<RouterProvider router={router}></RouterProvider>
+			</AuthProvider>
+		</Provider>
+	);
 }
 
 export default App;

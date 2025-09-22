@@ -69,7 +69,6 @@ function Home() {
 		})();
 	}, []);
 
-
 	const { t } = useTranslation();
 	const { prices, planType } = useSelector((state) => state.pricing);
 	const dispatch = useDispatch();
@@ -102,21 +101,21 @@ function Home() {
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<MyButton
 									bgColor="#ff9500"
-                  textColor="text-white"
+									textColor="text-white"
 									onClick={() => {
 										document
 											.getElementById("CoursesSec")
-											.scrollIntoView({ behavior: "smooth", block: "center",  });
+											.scrollIntoView({ behavior: "smooth", block: "center" });
 									}}
 								>
 									{t("home.hero.cta_explore")}
 								</MyButton>
 								<MyButton
-									 className=" btn-primary w-auto w-full focus:outline-none focus:ring-0"
+									className=" btn-primary w-auto w-full focus:outline-none focus:ring-0"
 									onClick={() => {
 										document
 											.getElementById("PriceSec")
-											.scrollIntoView({ behavior: "smooth", block: "center",});
+											.scrollIntoView({ behavior: "smooth", block: "center" });
 									}}
 								>
 									{t("home.hero.cta_view_pricing")}
@@ -191,7 +190,7 @@ function Home() {
 			<div className="relative overflow-hidden rounded-lg shadow-lg aspect-video">
 				<iframe
 					className="w-full h-full"
-					src="https://www.youtube.com/embed/ScMzIvxBSi4"
+					src="https://fxrmzsdwqelruixtjlfn.supabase.co/storage/v1/object/public/upwork/Mock_Video_for_New_Courses_Website%20(1).mp4"
 					title={t("home.video.iframe_title")}
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen
@@ -258,7 +257,7 @@ function Home() {
 			</CardsContainer>
 
 			{/* Courses Section */}
-			<CardsContainer 
+			<CardsContainer
 				title={<SectionTitle>{t("home.courses_section.title")}</SectionTitle>}
 				subtitle={
 					<SectionSubtitle>

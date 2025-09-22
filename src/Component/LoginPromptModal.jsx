@@ -39,7 +39,7 @@ export default function LoginPromptModal() {
 
 	const onCancel = () => {
 		closeAndClear();
-		navigate("/");
+		// navigate("/");
 	};
 
 	const onGoLogin = () => {
