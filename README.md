@@ -30,7 +30,6 @@
 - [🌐 Environment Variables](#-environment-variables)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
 
 ## 🌟 Overview
 
@@ -58,7 +57,6 @@ Experience the platform in action:
 <table>
 <tr>
 <td width="50%">
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
 
 ### 👨‍🎓 Student Features
 - ✅ **Course Catalog**: Browse and search courses
@@ -115,7 +113,6 @@ Experience the platform in action:
 ### Payment & APIs
 ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 ![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
 
 </div>
 
@@ -196,8 +193,6 @@ npm test            # Run tests
 ```
 
 ## 📂 Project Structure
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
-
 ```
 src/
 ├── 🗂️ AdminDashboard/     # Instructor interface components
@@ -234,8 +229,6 @@ src/
 ```
 
 ## 🌐 Environment Variables
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
-
 Create a `.env.local` file in the root directory:
 
 ```bash
@@ -314,4 +307,3 @@ Built with ❤️ by [Ahmed Shaban](https://github.com/ahmedshaban-blip)
 [![GitHub forks](https://img.shields.io/github/forks/ahmedshaban-blip/E-Learning-WebSite-With-React-JS?style=social)](https://github.com/ahmedshaban-blip/E-Learning-WebSite-With-React-JS/network)
 
 </div>
->>>>>>> be5d9b10d65c086fd364f1ca0bcf4ff17d9d78f0
