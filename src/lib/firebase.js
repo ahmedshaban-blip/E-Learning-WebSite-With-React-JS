@@ -5,16 +5,16 @@ import { getFirestore, collection, getDocs, getDoc, doc, updateDoc, deleteDoc, s
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDUgH1CH5o6vHo5wMgeUgHAKKIUWgmVtao",
-  authDomain: "e-learning-35aa2.firebaseapp.com",
-  projectId: "e-learning-35aa2",
-  storageBucket: "e-learning-35aa2.firebasestorage.app",
-  messagingSenderId: "964443659733",
-  appId: "1:964443659733:web:40b05999b373cd3315315c"
+  apiKey: "AIzaSyBm9Zp4YmSWCocl21P8TDIjXFwKkqG1kqc",
+  authDomain: "e-learning-d93dc.firebaseapp.com",
+  projectId: "e-learning-d93dc",
+  storageBucket: "e-learning-d93dc.firebasestorage.app",
+  messagingSenderId: "621350794520",
+  appId: "1:621350794520:web:249a71f31fba0638051a6d"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
