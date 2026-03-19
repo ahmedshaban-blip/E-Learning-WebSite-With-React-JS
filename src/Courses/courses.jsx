@@ -47,7 +47,7 @@ function AllCourses() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const itemsPerPage = 5;
   const [enrolledCourses, setEnrolledCourses] = useState([]);
 
@@ -332,7 +332,7 @@ function AllCourses() {
                     </div>
 
                     {/* Horizontal space between price and enroll button using flex gap and margin */}
-                    <div className="flex items-center gap-3 mr-8">
+                    <div className={`flex items-center gap-3 ${i18n.language === 'ar' ? 'mr-8' : 'ml-8'}`}>
                       {isEnrolled ? (
                         <Link
                           to="/my-courses"
