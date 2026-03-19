@@ -11,7 +11,8 @@ import {
   setFavorites,
 } from "../redux/slices/wishlistSlice";
 
-import { getAllData } from "../lib/firebase";
+import { getAllData, getUserEnrolledCourses } from "../lib/firebase";
+import { getCoursesFromLocal } from "../lib/localStorage";
 import { useEffect, useMemo, useState } from "react";
 import {
   Link,
@@ -48,6 +49,7 @@ function AllCourses() {
   const { user } = useAuth();
   const { t } = useTranslation();
   const itemsPerPage = 5;
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
 
   // Redux
   const dispatch = useDispatch();
@@ -74,6 +76,15 @@ function AllCourses() {
       dispatch(setFavorites(ids));
     })();
   }, [user?.uid, dispatch]);
+
+  // load enrolled courses from firestore
+  useEffect(() => {
+    (async () => {
+      if (!user?.uid) return;
+      const enrolled = await getUserEnrolledCourses(user.uid);
+      setEnrolledCourses(enrolled);
+    })();
+  }, [user?.uid]);
 
   useEffect(() => {
     async function loadCourses() {
@@ -123,6 +134,15 @@ function AllCourses() {
       );
     });
   }, [courses, cat, q]);
+
+  const enrolledIds = useMemo(() => {
+    if (user?.uid) {
+      return enrolledCourses.map(e => e.courseId);
+    } else {
+      const local = getCoursesFromLocal("guest");
+      return local.map(e => e.courseId);
+    }
+  }, [user?.uid, enrolledCourses]);
 
   // Pagination
   const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
@@ -212,6 +232,7 @@ function AllCourses() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {currentCourses.map((course) => {
           const isSaved = wishlistItems.includes(course.id);
+          const isEnrolled = enrolledIds.includes(course.id);
 
           const handleToggleWishlist = async () => {
             if (!user) {
@@ -310,13 +331,24 @@ function AllCourses() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      <MyButton
-                        bgColor="#ff9500"
-                        onClick={() => handleEnroll(course)}
-                      >
-                        {t("courses.card.enroll")}
-                      </MyButton>
+                    {/* Horizontal space between price and enroll button using flex gap and margin */}
+                    <div className="flex items-center gap-3 mr-8">
+                      {isEnrolled ? (
+                        <Link
+                          to="/my-courses"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:text-orange-800 underline hover:underline decoration-2 transition-colors"
+                        >
+                          <i className="fas fa-check-circle text-orange-500"></i>
+                          {t("courses.card.already_enrolled")}
+                        </Link>
+                      ) : (
+                        <MyButton
+                          bgColor="#ff9500"
+                          onClick={() => handleEnroll(course)}
+                        >
+                          {t("courses.card.enroll")}
+                        </MyButton>
+                      )}
                     </div>
                   </div>
                 </div>

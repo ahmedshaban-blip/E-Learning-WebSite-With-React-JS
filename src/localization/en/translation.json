@@ -262,7 +262,8 @@
 		"card": {
 			"price_label": "Price:",
 			"show_content": "Show content",
-			"enroll": "Enroll"
+			"enroll": "Enroll",
+			"already_enrolled": "Already purchased, please go to my courses"
 		},
 		"empty": {
 			"base": "No courses found",
